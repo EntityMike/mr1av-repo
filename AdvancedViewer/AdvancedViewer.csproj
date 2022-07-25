@@ -1,0 +1,74 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
+    <ApplicationIcon>Resources\HollyIcon.ico</ApplicationIcon>
+    <AssemblyName>MR1AdvancedViewer</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\HollyIcon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Octokit" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include="Resources\Ape_Techs\" />
+    <Folder Include="Resources\Dino_Techs\" />
+    <Folder Include="Resources\Disk_Techs\" />
+    <Folder Include="Resources\Doodle_Techs\" />
+    <Folder Include="Resources\Dragon_Techs\" />
+    <Folder Include="Resources\Gali_Techs\" />
+    <Folder Include="Resources\Ghost_Techs\" />
+    <Folder Include="Resources\Golem_Techs\" />
+    <Folder Include="Resources\Hare_Techs\" />
+    <Folder Include="Resources\Henger_Techs\" />
+    <Folder Include="Resources\Jell_Techs\" />
+    <Folder Include="Resources\Magic_Techs\" />
+    <Folder Include="Resources\Monol_Techs\" />
+    <Folder Include="Resources\Naga_Techs\" />
+    <Folder Include="Resources\Worm_Techs\" />
+    <Folder Include="Resources\Tiger_Techs\" />
+    <Folder Include="Resources\Suezo_Techs\" />
+    <Folder Include="Resources\Plant_Techs\" />
+    <Folder Include="Resources\Pixie_Techs\" />
+    <Folder Include="Resources\Nya_Techs\" />
+  </ItemGroup>
+
+</Project>

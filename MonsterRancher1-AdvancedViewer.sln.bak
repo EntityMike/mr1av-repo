@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32616.157
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonsterRancher1AdvancedViewer", "AdvancedViewer\MonsterRancher1AdvancedViewer.csproj", "{26D8D38A-5BC2-4739-A7B5-CB91C861840E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{26D8D38A-5BC2-4739-A7B5-CB91C861840E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26D8D38A-5BC2-4739-A7B5-CB91C861840E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26D8D38A-5BC2-4739-A7B5-CB91C861840E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26D8D38A-5BC2-4739-A7B5-CB91C861840E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ECD35163-2F40-4F34-88BD-5EB78DFEA59B}
+	EndGlobalSection
+EndGlobal

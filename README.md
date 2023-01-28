@@ -20,6 +20,17 @@ Soken (EntityMike)
 
 ## Version History
 
+### Version 1.1.0
+* Various code cleanup
+* Add Training Calculator (version 1)
+   * The "Training" button is on the middle right of the main window
+   * The new window always opens (initially) at the bottom left of the main window
+   * Shows the following information:
+      * Shows the different training locations
+      * Shows percentage chance of acquiring a new tech at each training location
+      * Shows percentage chance for both level 1 techs and level 2/special techs
+      * Shows the monster stat which each location is based off of
+
 ### Version 1.0.0
 * Advanced Viewer currently provides the following information:
    * Monster Breed
@@ -28,7 +39,7 @@ Soken (EntityMike)
    * Monster Potential
    * Monster Seriousness
    * Monster Guts Rate (Will Rate)
-   * Monster Stats (POW/DEF/SKI/SPD/INT)
+   * Monster Stats (LIF/POW/DEF/SKI/SPD/INT)
    * Monster Spoil
    * Monster Fear
    * Monster Loyalty (calculated)

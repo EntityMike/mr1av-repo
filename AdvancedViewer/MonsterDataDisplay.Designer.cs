@@ -89,6 +89,7 @@
             this.labMonStatTotal = new System.Windows.Forms.Label();
             this.pbWarningIcon = new System.Windows.Forms.PictureBox();
             this.butAbout = new System.Windows.Forms.Button();
+            this.butTraining = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbWarningIcon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -674,11 +675,22 @@
             this.butAbout.UseVisualStyleBackColor = true;
             this.butAbout.Click += new System.EventHandler(this.butAbout_Click);
             // 
+            // butTraining
+            // 
+            this.butTraining.Location = new System.Drawing.Point(528, 84);
+            this.butTraining.Name = "butTraining";
+            this.butTraining.Size = new System.Drawing.Size(64, 26);
+            this.butTraining.TabIndex = 63;
+            this.butTraining.Text = "Training";
+            this.butTraining.UseVisualStyleBackColor = true;
+            this.butTraining.Click += new System.EventHandler(this.butTraining_Click);
+            // 
             // MonsterDataDisplay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(601, 327);
+            this.Controls.Add(this.butTraining);
             this.Controls.Add(this.butAbout);
             this.Controls.Add(this.pbWarningIcon);
             this.Controls.Add(this.labMonStatTotal);
@@ -813,5 +825,6 @@
         private Label labMonStatTotal;
         private PictureBox pbWarningIcon;
         private Button butAbout;
+        private Button butTraining;
     }
 }

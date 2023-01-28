@@ -5,8 +5,91 @@ using Octokit; // for GitHub version checking
 
 namespace AdvancedViewer
 {
+    public struct MonsterStats
+    {
+        public int monLife;
+        public int monPower;
+        public int monDefense;
+        public int monSkill;
+        public int monSpeed;
+        public int monIntelligence;
+
+        public int monLifeSpan;
+        public int monAge;
+        public int monFatigue;
+        public int monStress;
+        public int monSpoil;
+        public int monFear;
+        public int monSeriousness;
+        public int monPotential;
+        public int monGutsRate;
+        public int monMainBreed;
+        public int monSubBreed;
+
+        public MonsterStats()
+        {
+            monLife = -1;
+            monPower = -1;
+            monDefense = -1;
+            monSkill = -1;
+            monSpeed = -1;
+            monIntelligence = -1;
+
+            monLifeSpan = -1;
+            monAge = -1;
+            monFatigue = -1;
+            monStress = -1;
+            monSpoil = -1;
+            monFear = -1;
+            monSeriousness = -1;
+            monPotential = -1;
+            monGutsRate = -1;
+            monMainBreed = -1;
+            monSubBreed = -1;
+        }
+    }
+
+    public struct GameStats
+    {
+        public int plaMoney;
+        public int gameWeek;
+        public int gameMonth;
+        public int gameYear12;
+        public int gameYear34;
+
+        public GameStats()
+        {
+            plaMoney = -1;
+            gameWeek = -1;
+            gameMonth = -1;
+            gameYear12 = -1;
+            gameYear34 = -1;
+        }
+    }
+
     public partial class MonsterDataDisplay : Form
     {
+        // -------------------------------------------------------------------------------
+
+        // form controls
+        System.Windows.Forms.Timer processScanTimer;
+        System.Windows.Forms.Timer updateTimer;
+        System.Windows.Forms.Timer versionWarningBlinkTimer;
+        ToolTip tips;
+
+        // our classes
+        static MRProcessWrapper _mrpw;
+        // pulled from memory
+        public static MonsterStats _monStats;
+        public static GameStats _gameStats;
+
+        public TrainingCalculator? _tCalc;
+
+        // versioning
+        string ViewerVersionID = "1.1.0";
+
+        // -------------------------------------------------------------------------------
+
         public MonsterDataDisplay()
         {
             InitializeComponent();
@@ -17,7 +100,9 @@ namespace AdvancedViewer
             tips = new ToolTip();
             SetAllToolTips();
 
-            mrpw = new MRProcessWrapper();
+            _mrpw = new MRProcessWrapper();
+            _monStats = new MonsterStats();
+            _gameStats = new GameStats();
 
             processScanTimer = new System.Windows.Forms.Timer();
             processScanTimer.Interval = 50; ; // 50ms ; lets do this really often
@@ -33,45 +118,6 @@ namespace AdvancedViewer
 
             processScanTimer.Start();
         }
-
-        // -------------------------------------------------------------------------------
-
-        MRProcessWrapper mrpw;
-        System.Windows.Forms.Timer processScanTimer;
-        System.Windows.Forms.Timer updateTimer;
-        System.Windows.Forms.Timer versionWarningBlinkTimer;
-        ToolTip tips;
-
-        // pulled from memory
-        int _monLife = -1;
-        int _monPower = -1;
-        int _monDefense = -1;
-        int _monSkill = -1;
-        int _monSpeed = -1;
-        int _monIntelligence = -1;
-
-        int _monLifeSpan = -1;
-        int _monAge = -1;
-        int _monFatigue = -1;
-        int _monStress = -1;
-        int _monSpoil = -1;
-        int _monFear = -1;
-        int _monSeriousness = -1;
-        int _monPotential = -1;
-        int _monGutsRate = -1;
-        int _monMainBreed = -1;
-        int _monSubBreed = -1;
-
-        int _plaMoney = -1;
-        int _gameWeek = -1;
-        int _gameMonth = -1;
-        int _gameYear12 = -1;
-        int _gameYear34 = -1;
-
-        // form-specific
-        string ViewerVersionID = "1.0.0";
-
-        // -------------------------------------------------------------------------------
 
         // Pillaged from MR2AV (Thanks Lexichu)
         private async Task CheckGitHubNewerVersion()
@@ -189,18 +235,25 @@ namespace AdvancedViewer
 
         private void processScanTimer_Tick(object sender, EventArgs e)
         {
-            if (!mrpw.CheckForMonsterRancherProcess())
+            if (!_mrpw.CheckForMonsterRancherProcess())
             {
                 // nothing running yet, blank out the data
                 updateTimer.Stop();
                 tbGameState.Text = "Not Detected";
                 BlankAllData();
+                if (_tCalc != null)
+                {
+                    _tCalc.Close();
+                    _tCalc = null;
+                }
+                butTraining.Enabled = false;
             }
             else
             {
                 // we can see it running, now fill in the data
                 tbGameState.Text = "Detected; Running";
                 updateTimer.Start();
+                butTraining.Enabled = true;
             }
         }
 
@@ -208,60 +261,78 @@ namespace AdvancedViewer
         {
             // ------ Update all data variables ------
 
-            _monLife = mrpw.GetMonLife();
-            _monPower = mrpw.GetMonPower();
-            _monDefense = mrpw.GetMonDefense();
-            _monSkill = mrpw.GetMonSkill();
-            _monSpeed = mrpw.GetMonSpeed();
-            _monIntelligence = mrpw.GetMonIntelligence();
+            _monStats.monLife = _mrpw.GetMonLife();
+            _monStats.monPower = _mrpw.GetMonPower();
+            _monStats.monDefense = _mrpw.GetMonDefense();
+            _monStats.monSkill = _mrpw.GetMonSkill();
+            _monStats.monSpeed = _mrpw.GetMonSpeed();
+            _monStats.monIntelligence = _mrpw.GetMonIntelligence();
 
             // NOTE: Fenrick says the LifeSpan # is remaining LifeSpan
-            _monLifeSpan = mrpw.GetMonLifeSpan();
-            _monAge = mrpw.GetMonAge();
-            _monFatigue = mrpw.GetMonFatigue();
-            _monStress = mrpw.GetMonStress();
-            _monSpoil = mrpw.GetMonSpoil();
-            _monFear = mrpw.GetMonFear();
-            _monSeriousness = mrpw.GetMonSeriousness();
-            _monPotential = mrpw.GetMonPotential();
-            _monGutsRate = mrpw.GetMonGutsRate();
-            _monMainBreed = mrpw.GetMonMainBreed();
-            _monSubBreed = mrpw.GetMonSubBreed();
+            _monStats.monLifeSpan = _mrpw.GetMonLifeSpan();
+            _monStats.monAge = _mrpw.GetMonAge();
+            _monStats.monFatigue = _mrpw.GetMonFatigue();
+            _monStats.monStress = _mrpw.GetMonStress();
+            _monStats.monSpoil = _mrpw.GetMonSpoil();
+            _monStats.monFear = _mrpw.GetMonFear();
+            _monStats.monSeriousness = _mrpw.GetMonSeriousness();
+            _monStats.monPotential = _mrpw.GetMonPotential();
+            _monStats.monGutsRate = _mrpw.GetMonGutsRate();
+            _monStats.monMainBreed = _mrpw.GetMonMainBreed();
+            _monStats.monSubBreed = _mrpw.GetMonSubBreed();
 
-            _plaMoney = mrpw.GetPlayerMoney();
-            _gameWeek = mrpw.GetGameWeek();
-            _gameMonth = mrpw.GetGameMonth();
-            _gameYear12 = mrpw.GetGameYear12();
-            _gameYear34 = mrpw.GetGameYear34();
+            _gameStats.plaMoney = _mrpw.GetPlayerMoney();
+            _gameStats.gameWeek = _mrpw.GetGameWeek();
+            _gameStats.gameMonth = _mrpw.GetGameMonth();
+            _gameStats.gameYear12 = _mrpw.GetGameYear12();
+            _gameStats.gameYear34 = _mrpw.GetGameYear34();
 
             // ------ Update all text displays ------
 
-            tbMonLif.Text = _monLife.ToString();
-            tbMonPow.Text = _monPower.ToString();
-            tbMonDef.Text = _monDefense.ToString();
-            tbMonSki.Text = _monSkill.ToString();
-            tbMonSpd.Text = _monSpeed.ToString();
-            tbMonInt.Text = _monIntelligence.ToString();
-            labMonStatTotal.Text = (_monLife + _monPower + _monDefense + 
-                                    _monSkill + _monSpeed + _monIntelligence).ToString();
+            tbMonLif.Text = _monStats.monLife.ToString();
+            tbMonPow.Text = _monStats.monPower.ToString();
+            tbMonDef.Text = _monStats.monDefense.ToString();
+            tbMonSki.Text = _monStats.monSkill.ToString();
+            tbMonSpd.Text = _monStats.monSpeed.ToString();
+            tbMonInt.Text = _monStats.monIntelligence.ToString();
+            labMonStatTotal.Text = (_monStats.monLife + _monStats.monPower + _monStats.monDefense + 
+                                    _monStats.monSkill + _monStats.monSpeed + _monStats.monIntelligence).ToString();
 
-            tbMonLifeSpan.Text = MRUtilities.FormatLifeSpan(_monLifeSpan);
-            tbMonAge.Text = MRUtilities.FormatAge(_monAge);
-            tbMonStress.Text = _monStress.ToString();
-            tbMonFatig.Text = _monFatigue.ToString();
-            tbMonLifeInd.Text = MRUtilities.CalculateLifeIndex(_monStress, _monFatigue, out Color lifeIndexColorCode);
+            tbMonLifeSpan.Text = MRUtilities.FormatLifeSpan(_monStats.monLifeSpan);
+            tbMonAge.Text = MRUtilities.FormatAge(_monStats.monAge);
+            tbMonStress.Text = _monStats.monStress.ToString();
+            tbMonFatig.Text = _monStats.monFatigue.ToString();
+            tbMonLifeInd.Text = MRUtilities.CalculateLifeIndex(_monStats.monStress, _monStats.monFatigue, out Color lifeIndexColorCode);
             tbMonLifeInd.BackColor = lifeIndexColorCode;
-            tbMonSpoil.Text = _monSpoil.ToString();
-            tbMonFear.Text = _monFear.ToString();
-            tbMonLoyal.Text = MRUtilities.CalculateLoyalty(_monSpoil, _monFear);
-            tbMonSrs.Text = _monSeriousness.ToString();
-            tbMonPot.Text = _monPotential.ToString();
-            tbMonGutsRate.Text = _monGutsRate.ToString();
-            tbMonBreed.Text = MRUtilities.FormatBreed(_monMainBreed, _monSubBreed);
-            tbBreedName.Text = MRUtilities.FormatBreedName(_monMainBreed, _monSubBreed);
+            tbMonSpoil.Text = _monStats.monSpoil.ToString();
+            tbMonFear.Text = _monStats.monFear.ToString();
+            tbMonLoyal.Text = MRUtilities.CalculateLoyalty(_monStats.monSpoil, _monStats.monFear);
+            tbMonSrs.Text = _monStats.monSeriousness.ToString();
+            tbMonPot.Text = _monStats.monPotential.ToString();
+            tbMonGutsRate.Text = _monStats.monGutsRate.ToString();
+            tbMonBreed.Text = MRUtilities.FormatBreed(_monStats.monMainBreed, _monStats.monSubBreed);
+            tbBreedName.Text = MRUtilities.FormatBreedName(_monStats.monMainBreed, _monStats.monSubBreed);
 
-            tbPlaMoney.Text = MRUtilities.FormatPlayerMoney(_plaMoney);
-            tbGameDate.Text = MRUtilities.FormatGameDate(_gameWeek, _gameMonth, _gameYear12, _gameYear34);
+            tbPlaMoney.Text = MRUtilities.FormatPlayerMoney(_gameStats.plaMoney);
+            tbGameDate.Text = MRUtilities.FormatGameDate(_gameStats.gameWeek, _gameStats.gameMonth, _gameStats.gameYear12, _gameStats.gameYear34);
+
+            if (_tCalc != null)
+            {
+                _tCalc.UpdateMonsterStats(new int[] { _monStats.monLife, _monStats.monPower, _monStats.monDefense, _monStats.monSkill, 
+                                                     _monStats.monSpeed, _monStats.monIntelligence, _monStats.monSpoil, _monStats.monFear });
+            }
+        }
+
+        private void butTraining_Click(object sender, EventArgs e)
+        {
+            if (_tCalc == null)
+            {
+                // TODO: We CAN make this more complicated if we want, and take into account the display size
+                // to make sure it does not appear off-screen if this window is too far down ... but meh?
+                _tCalc = new TrainingCalculator(new Point(this.Location.X, (this.Location.Y + this.Height)));
+                _tCalc.FormClosing += trainingCalcFormClose;
+                _tCalc.Show();
+            }
         }
 
         private void versionWarningBlinkTimer_Tick(object sender, EventArgs e)
@@ -274,7 +345,6 @@ namespace AdvancedViewer
             {
                 pbWarningIcon.BackColor = SystemColors.Control;
             }
-
         }
 
         private void pbWarningIcon_Click(object sender, EventArgs e)
@@ -311,6 +381,12 @@ namespace AdvancedViewer
                                   "Enjoy!";
 
             MessageBox.Show(displayText, "About/Help", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        // form close callbacks
+        public void trainingCalcFormClose(object sender, FormClosingEventArgs e)
+        {
+            _tCalc = null;
         }
     }
 }

@@ -25,18 +25,7 @@ namespace AdvancedViewer
         private int _localMonSpoil = 0;
         private int _localMonFear = 0;
 
-        // training location data
-        private int _altaVistaLevel1Percent = 0;
-        private int _altaVistaLevel2Percent = 0;
-        private int _salemSpecialPercent = 0;
-        private int _renoSpecialPercent = 0;
-        private int _tongaLevel1Percent = 0;
-        private int _tongaLevel2Percent = 0;
-        private int _hartvilleLevel1Percent = 0;
-        private int _hartvilleLevel2Percent = 0;
-        private int _bareesLevel1Percent = 0;
-        private int _bareesLevel2Percent = 0;
-
+        // controls
         private System.Windows.Forms.Timer updateTimer;
 
         // -------------------------------------------------------------------------------
@@ -54,7 +43,7 @@ namespace AdvancedViewer
 
             // TODO: maybe integrate tool tips at some point later?
 
-            SetTextBoxes();
+            CalculateTrainingTechPercentages();
 
             updateTimer = new System.Windows.Forms.Timer();
             updateTimer.Interval = 1000; // 1s ; limit re-calculations to save CPU
@@ -79,26 +68,8 @@ namespace AdvancedViewer
         // Use this function for the 1 second update tick function
         private void CalculateTrainingTechPercentages()
         {
-            /////// Tech Acquisition Requirements ///////
-            // For Level 1:
-            // Location Stat + Spoil + Fear + Random(1,99) >= 250
-            // For Level 2 / Special:
-            // Location Stat + Spoil + Fear + Random(1,99) >= 500
-            //
-            // The "minimum" values help us mathmatically get a percentage for the techs.
-            // However, because the "base" numbers are supposed to also be adding in
-            // a random number between 1 and 99 that means we need to subtract the 
-            // minimum there, which is 1.
-            //
-            // We can see use the below numeric logic to help us determine if our math
-            // formula output is correct
-            // For Level 1:
-            // 151 (1%) to 250 (100%) ; below 151 (0%) ; above 250 (100%)
-            // For Level 2 / Special:
-            // 401 (1%) to 500 (100%) ; below 401 (0%) ; above 500 (100%)
-            //           
-
-            const int level1Minimum = 150 - 1;
+            // old calculation code for posterity
+            /*const int level1Minimum = 150 - 1;
             const int level2Minimum = 400 - 1;
             const int specialMinimum = 400 - 1;
 
@@ -123,27 +94,23 @@ namespace AdvancedViewer
             _hartvilleLevel2Percent = Math.Clamp((spdBase - level2Minimum), 0, 100);
 
             _bareesLevel1Percent = Math.Clamp((intBase - level1Minimum), 0, 100);
-            _bareesLevel2Percent = Math.Clamp((intBase - level2Minimum), 0, 100);
-        }
-
-        private void SetTextBoxes()
-        {
-            tbAltaVista1.Text = _altaVistaLevel1Percent.ToString() + " %";
-            tbAltaVista2.Text = _altaVistaLevel2Percent.ToString() + " %";
-            tbSalem.Text = _salemSpecialPercent.ToString() + " %";
-            tbReno.Text = _renoSpecialPercent.ToString() + " %";
-            tbTonga1.Text = _tongaLevel1Percent.ToString() + " %";
-            tbTonga2.Text = _tongaLevel2Percent.ToString() + " %";
-            tbHartville1.Text = _hartvilleLevel1Percent.ToString() + " %";
-            tbHartville2.Text = _hartvilleLevel2Percent.ToString() + " %";
-            tbBarees1.Text = _bareesLevel1Percent.ToString() + " %";
-            tbBarees2.Text = _bareesLevel2Percent.ToString() + " %";
+            _bareesLevel2Percent = Math.Clamp((intBase - level2Minimum), 0, 100);*/
+            
+            tbAltaVista1.Text = MRUtilities.CalculateLevel1Percentage(_localMonSpoil, _localMonFear, _localMonLife) + " %";
+            tbAltaVista2.Text = MRUtilities.CalculateLevel2Percentage(_localMonSpoil, _localMonFear, _localMonLife) + " %";
+            tbSalem.Text = MRUtilities.CalculateSpecialPercentage(_localMonSpoil, _localMonFear, _localMonPower) + " %";
+            tbReno.Text = MRUtilities.CalculateSpecialPercentage(_localMonSpoil, _localMonFear, _localMonDefense) + " %";
+            tbTonga1.Text = MRUtilities.CalculateLevel1Percentage(_localMonSpoil, _localMonFear, _localMonSkill) + " %";
+            tbTonga2.Text = MRUtilities.CalculateLevel2Percentage(_localMonSpoil, _localMonFear, _localMonSkill) + " %";
+            tbHartville1.Text = MRUtilities.CalculateLevel1Percentage(_localMonSpoil, _localMonFear, _localMonSpeed) + " %";
+            tbHartville2.Text = MRUtilities.CalculateLevel2Percentage(_localMonSpoil, _localMonFear, _localMonSpeed) + " %";
+            tbBarees1.Text = MRUtilities.CalculateLevel1Percentage(_localMonSpoil, _localMonFear, _localMonIntelligence) + " %";
+            tbBarees2.Text = MRUtilities.CalculateLevel2Percentage(_localMonSpoil, _localMonFear, _localMonIntelligence) + " %";
         }
 
         private void updateTimer_Tick(object sender, EventArgs e)
         {
             CalculateTrainingTechPercentages();
-            SetTextBoxes();
         }
     }
 }

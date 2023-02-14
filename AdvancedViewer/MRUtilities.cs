@@ -9,7 +9,7 @@ namespace AdvancedViewer
 {
     internal static class MRUtilities
     {
-        #region DATA MASKS / ENUMS
+        #region DATA MASKS / ENUMS / CONSTANTS
         public enum Breed
         {
             Dino   = 0x00, // 0
@@ -36,7 +36,7 @@ namespace AdvancedViewer
             Unk2   = 0x15, // 21
             Unk3   = 0x16, // 22
         }
-        #endregion // DATA MASKS / ENUMS
+        #endregion // DATA MASKS / ENUMS / CONSTANTS
 
         public static string CalculateLoyalty(int spoil, int fear)
         {
@@ -216,6 +216,48 @@ namespace AdvancedViewer
 
             return weekFormatted + monthFormatted + yearFormatted;
         }
+
+        ///////////// Tech Acquisition Requirements /////////////
+        // For Level 1:
+        // Location Stat + Spoil + Fear + Random(1,99) >= 250
+        // For Level 2 / Special:
+        // Location Stat + Spoil + Fear + Random(1,99) >= 500
+        //
+        // The "minimum" values help us mathmatically get a percentage for the techs.
+        // However, because the "base" numbers are supposed to also be adding in
+        // a random number between 1 and 99 that means we need to subtract the 
+        // minimum there, which is 1.
+        //
+        // We can see use the below numeric logic to help us determine if our math
+        // formula output is correct
+        // For Level 1:
+        // 151 (1%) to 250 (100%) ; below 151 (0%) ; above 250 (100%)
+        // For Level 2 / Special:
+        // 401 (1%) to 500 (100%) ; below 401 (0%) ; above 500 (100%)
+        // 
+        public static string CalculateLevel1Percentage(int spoil, int fear, int stat)
+        {
+            const int level1Minimum = 150 - 1;
+
+            int statBase = spoil + fear + stat;
+
+            return Math.Clamp((statBase - level1Minimum), 0, 100).ToString();
+        }
+
+        public static string CalculateLevel2Percentage(int spoil, int fear, int stat)
+        {
+            const int level2Minimum = 400 - 1;
+
+            int statBase = spoil + fear + stat;
+
+            return Math.Clamp((statBase - level2Minimum), 0, 100).ToString();
+        }
+
+        public static string CalculateSpecialPercentage(int spoil, int fear, int stat)
+        {
+            return CalculateLevel2Percentage(spoil, fear, stat);
+        }
+        ////////////////////////////////////////////////////////////
 
         public static string FormatBreedName(int main, int sub)
         {

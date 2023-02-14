@@ -73,7 +73,7 @@
             // 
             this.tbAltaVista1.Location = new System.Drawing.Point(86, 27);
             this.tbAltaVista1.Name = "tbAltaVista1";
-            this.tbAltaVista1.Size = new System.Drawing.Size(100, 23);
+            this.tbAltaVista1.Size = new System.Drawing.Size(99, 23);
             this.tbAltaVista1.TabIndex = 1;
             this.tbAltaVista1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -81,7 +81,7 @@
             // 
             this.tbSalem.Location = new System.Drawing.Point(192, 56);
             this.tbSalem.Name = "tbSalem";
-            this.tbSalem.Size = new System.Drawing.Size(100, 23);
+            this.tbSalem.Size = new System.Drawing.Size(99, 23);
             this.tbSalem.TabIndex = 3;
             this.tbSalem.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -98,7 +98,7 @@
             // 
             this.tbReno.Location = new System.Drawing.Point(192, 85);
             this.tbReno.Name = "tbReno";
-            this.tbReno.Size = new System.Drawing.Size(100, 23);
+            this.tbReno.Size = new System.Drawing.Size(99, 23);
             this.tbReno.TabIndex = 5;
             this.tbReno.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -115,7 +115,7 @@
             // 
             this.tbTonga1.Location = new System.Drawing.Point(86, 114);
             this.tbTonga1.Name = "tbTonga1";
-            this.tbTonga1.Size = new System.Drawing.Size(100, 23);
+            this.tbTonga1.Size = new System.Drawing.Size(99, 23);
             this.tbTonga1.TabIndex = 7;
             this.tbTonga1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -132,7 +132,7 @@
             // 
             this.tbHartville1.Location = new System.Drawing.Point(86, 143);
             this.tbHartville1.Name = "tbHartville1";
-            this.tbHartville1.Size = new System.Drawing.Size(100, 23);
+            this.tbHartville1.Size = new System.Drawing.Size(99, 23);
             this.tbHartville1.TabIndex = 9;
             this.tbHartville1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -149,7 +149,7 @@
             // 
             this.tbBarees1.Location = new System.Drawing.Point(86, 172);
             this.tbBarees1.Name = "tbBarees1";
-            this.tbBarees1.Size = new System.Drawing.Size(100, 23);
+            this.tbBarees1.Size = new System.Drawing.Size(99, 23);
             this.tbBarees1.TabIndex = 11;
             this.tbBarees1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -166,7 +166,7 @@
             // 
             this.tbAltaVista2.Location = new System.Drawing.Point(192, 27);
             this.tbAltaVista2.Name = "tbAltaVista2";
-            this.tbAltaVista2.Size = new System.Drawing.Size(100, 23);
+            this.tbAltaVista2.Size = new System.Drawing.Size(99, 23);
             this.tbAltaVista2.TabIndex = 12;
             this.tbAltaVista2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -174,7 +174,7 @@
             // 
             this.tbTonga2.Location = new System.Drawing.Point(192, 114);
             this.tbTonga2.Name = "tbTonga2";
-            this.tbTonga2.Size = new System.Drawing.Size(100, 23);
+            this.tbTonga2.Size = new System.Drawing.Size(99, 23);
             this.tbTonga2.TabIndex = 13;
             this.tbTonga2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -182,7 +182,7 @@
             // 
             this.tbHartville2.Location = new System.Drawing.Point(192, 143);
             this.tbHartville2.Name = "tbHartville2";
-            this.tbHartville2.Size = new System.Drawing.Size(100, 23);
+            this.tbHartville2.Size = new System.Drawing.Size(99, 23);
             this.tbHartville2.TabIndex = 14;
             this.tbHartville2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -190,7 +190,7 @@
             // 
             this.tbBarees2.Location = new System.Drawing.Point(192, 172);
             this.tbBarees2.Name = "tbBarees2";
-            this.tbBarees2.Size = new System.Drawing.Size(100, 23);
+            this.tbBarees2.Size = new System.Drawing.Size(99, 23);
             this.tbBarees2.TabIndex = 15;
             this.tbBarees2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -226,9 +226,9 @@
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Black;
-            this.pictureBox2.Location = new System.Drawing.Point(87, 83);
+            this.pictureBox2.Location = new System.Drawing.Point(87, 85);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(99, 25);
+            this.pictureBox2.Size = new System.Drawing.Size(99, 22);
             this.pictureBox2.TabIndex = 19;
             this.pictureBox2.TabStop = false;
             // 

@@ -20,6 +20,15 @@ Soken (EntityMike)
 
 ## Version History
 
+### Version 1.2.0
+* Various code cleanup
+* Add embedded training calculator data (from v1.1.0) to the main form
+   * A checkbox to enable or disable this functionality is next to the left of the "Training" button
+   * Enabled (checked) by default
+   * Disabling (un-checking) the checkbox will revert to the more simple layout from previous versions
+   * Training Calculator (version 1) is still available if you want a popout window
+   * Both can be used at the same time
+
 ### Version 1.1.0
 * Various code cleanup
 * Add Training Calculator (version 1)

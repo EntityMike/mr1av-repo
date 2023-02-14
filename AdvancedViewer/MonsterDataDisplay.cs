@@ -76,6 +76,11 @@ namespace AdvancedViewer
         System.Windows.Forms.Timer updateTimer;
         System.Windows.Forms.Timer versionWarningBlinkTimer;
         ToolTip tips;
+        List<Control> moveTheseControls;
+
+        // a counter used to limit CPU of embedded training calculations.
+        // setting this to 3 allows an immediate data update on tick #1.
+        int tickCounter = 3;
 
         // our classes
         static MRProcessWrapper _mrpw;
@@ -86,7 +91,7 @@ namespace AdvancedViewer
         public TrainingCalculator? _tCalc;
 
         // versioning
-        string ViewerVersionID = "1.1.0";
+        string ViewerVersionID = "1.2.0";
 
         // -------------------------------------------------------------------------------
 
@@ -96,6 +101,9 @@ namespace AdvancedViewer
 
             // this prevents the tbMonLif control from being selected on startup
             this.ActiveControl = labMonStatTotal;
+
+            // has to be called after InitializeComponent()
+            InitializeMyControlCollection();
 
             tips = new ToolTip();
             SetAllToolTips();
@@ -117,6 +125,27 @@ namespace AdvancedViewer
             versionWarningBlinkTimer.Tick += new EventHandler(versionWarningBlinkTimer_Tick);
 
             processScanTimer.Start();
+        }
+
+        // keep track of a subset of controls that can move around later if the user wants to
+        private void InitializeMyControlCollection()
+        {
+            // this list helps us move around these controls a lot easier
+            moveTheseControls = new List<Control>();
+            moveTheseControls.Add(this.label7);
+            moveTheseControls.Add(this.tbMonSpoil);
+            moveTheseControls.Add(this.label8);
+            moveTheseControls.Add(this.tbMonFear);
+            moveTheseControls.Add(this.label9);
+            moveTheseControls.Add(this.tbMonLoyal);
+            moveTheseControls.Add(this.label10);
+            moveTheseControls.Add(this.tbMonStress);
+            moveTheseControls.Add(this.label11);
+            moveTheseControls.Add(this.tbMonFatig);
+            moveTheseControls.Add(this.label12);
+            moveTheseControls.Add(this.tbMonLifeInd);
+            moveTheseControls.Add(this.label20);
+            moveTheseControls.Add(this.tbMonLifeSpan);
         }
 
         // Pillaged from MR2AV (Thanks Lexichu)
@@ -321,6 +350,23 @@ namespace AdvancedViewer
                 _tCalc.UpdateMonsterStats(new int[] { _monStats.monLife, _monStats.monPower, _monStats.monDefense, _monStats.monSkill, 
                                                      _monStats.monSpeed, _monStats.monIntelligence, _monStats.monSpoil, _monStats.monFear });
             }
+
+            // attempt to lower CPU load to 1Hz for these calculations, like the _tCalc form does
+            tickCounter++;
+            if (gbEmbeddedTraining.Visible && tickCounter == 4)
+            {
+                tbAltaVista1.Text = MRUtilities.CalculateLevel1Percentage(_monStats.monSpoil, _monStats.monFear, _monStats.monLife) + " %";
+                tbAltaVista2.Text = MRUtilities.CalculateLevel2Percentage(_monStats.monSpoil, _monStats.monFear, _monStats.monLife) + " %";
+                tbSalem.Text = MRUtilities.CalculateSpecialPercentage(_monStats.monSpoil, _monStats.monFear, _monStats.monPower) + " %";
+                tbReno.Text = MRUtilities.CalculateSpecialPercentage(_monStats.monSpoil, _monStats.monFear, _monStats.monDefense) + " %";
+                tbTonga1.Text = MRUtilities.CalculateLevel1Percentage(_monStats.monSpoil, _monStats.monFear, _monStats.monSkill) + " %";
+                tbTonga2.Text = MRUtilities.CalculateLevel2Percentage(_monStats.monSpoil, _monStats.monFear, _monStats.monSkill) + " %";
+                tbHartville1.Text = MRUtilities.CalculateLevel1Percentage(_monStats.monSpoil, _monStats.monFear, _monStats.monSpeed) + " %";
+                tbHartville2.Text = MRUtilities.CalculateLevel2Percentage(_monStats.monSpoil, _monStats.monFear, _monStats.monSpeed) + " %";
+                tbBarees1.Text = MRUtilities.CalculateLevel1Percentage(_monStats.monSpoil, _monStats.monFear, _monStats.monIntelligence) + " %";
+                tbBarees2.Text = MRUtilities.CalculateLevel2Percentage(_monStats.monSpoil, _monStats.monFear, _monStats.monIntelligence) + " %";
+                tickCounter = 0;
+            }
         }
 
         private void butTraining_Click(object sender, EventArgs e)
@@ -387,6 +433,33 @@ namespace AdvancedViewer
         public void trainingCalcFormClose(object sender, FormClosingEventArgs e)
         {
             _tCalc = null;
+        }
+
+        private void cbEmbedTraining_CheckedChanged(object sender, EventArgs e)
+        {
+            // This value was determined by experimentation
+            int offset = 170;
+
+            // logic based on the state of the check box
+            if (!cbEmbedTraining.Checked)
+            {
+                // move stuff to the left
+                offset *= -1;
+                // and make embedded training invisible
+                gbEmbeddedTraining.Visible = false;
+            }
+            else
+            {
+                // move stuff to the right, which is the default
+                // and make embedded training visible
+                gbEmbeddedTraining.Visible = true;
+            }
+
+            // move the subset of controls as needed
+            foreach (Control c in moveTheseControls)
+            {
+                c.Location = new System.Drawing.Point((c.Location.X + offset), c.Location.Y);
+            }
         }
     }
 }

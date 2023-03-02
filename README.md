@@ -20,6 +20,15 @@ Soken (EntityMike)
 
 ## Version History
 
+### Version 1.3.0
+* Bug fix
+   * Training Calculator (popout) window size was adjustable when it shouldn't have been
+* Add more tech data to the Training Calculator popout
+   * Show tech names next to the training location
+   * At the end of the tech name is (P) or (I) to indicate POW or INT tech
+   * Show tech type (Hit1, Heavy1, etc) next to the training location
+   * The embedded Training data in the main window in unchanged
+
 ### Version 1.2.0
 * Various code cleanup
 * Add embedded training calculator data (from v1.1.0) to the main form

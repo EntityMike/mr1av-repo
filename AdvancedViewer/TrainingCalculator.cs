@@ -25,6 +25,8 @@ namespace AdvancedViewer
         private int _localMonSpoil = 0;
         private int _localMonFear = 0;
 
+        private int _localMonMainBreed = 0;
+
         // controls
         private System.Windows.Forms.Timer updateTimer;
 
@@ -63,6 +65,7 @@ namespace AdvancedViewer
             _localMonIntelligence = update[5];
             _localMonSpoil = update[6];
             _localMonFear = update[7];
+            _localMonMainBreed = update[8];
         }
 
         // Use this function for the 1 second update tick function
@@ -106,6 +109,18 @@ namespace AdvancedViewer
             tbHartville2.Text = MRUtilities.CalculateLevel2Percentage(_localMonSpoil, _localMonFear, _localMonSpeed) + " %";
             tbBarees1.Text = MRUtilities.CalculateLevel1Percentage(_localMonSpoil, _localMonFear, _localMonIntelligence) + " %";
             tbBarees2.Text = MRUtilities.CalculateLevel2Percentage(_localMonSpoil, _localMonFear, _localMonIntelligence) + " %";
+
+            label18.Text = MRUtilities.GetHeavy1TechName(_localMonMainBreed);
+            label21.Text = MRUtilities.GetHit1TechName(_localMonMainBreed);
+            label22.Text = MRUtilities.GetRanged1TechName(_localMonMainBreed);
+            label23.Text = MRUtilities.GetWither1TechName(_localMonMainBreed);
+
+            label25.Text = MRUtilities.GetHeavy2TechName(_localMonMainBreed);
+            label26.Text = MRUtilities.GetSpecial1TechName(_localMonMainBreed);
+            label27.Text = MRUtilities.GetSpecial2TechName(_localMonMainBreed);
+            label28.Text = MRUtilities.GetHit2TechName(_localMonMainBreed);
+            label29.Text = MRUtilities.GetRanged2TechName(_localMonMainBreed);
+            label30.Text = MRUtilities.GetWither2TechName(_localMonMainBreed);
         }
 
         private void updateTimer_Tick(object sender, EventArgs e)

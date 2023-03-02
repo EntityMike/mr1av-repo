@@ -259,6 +259,1307 @@ namespace AdvancedViewer
         }
         ////////////////////////////////////////////////////////////
 
+        public static string GetHit1TechName(int main)
+        {
+            string name = "N / A";
+
+            if (main == -1)
+                return name;
+
+            Breed mainBreed = (Breed)main;
+
+            switch (mainBreed)
+            {
+                case Breed.Dino:
+                {
+                    name = "Whip (P)";
+                }
+                break;
+                case Breed.Golem:
+                {
+                    name = "Belly Claw (P)";
+                }
+                break;
+                case Breed.Tiger:
+                {
+                    name = "Tackle (P)";
+                }
+                break;
+                case Breed.Pixie:
+                {
+                    name = "Lightning (I)";
+                }
+                break;
+                case Breed.Worm:
+                {
+                    name = "Whip (P)";
+                }
+                break;
+                case Breed.Jell:
+                {
+                    name = "Slap (P)";
+                }
+                break;
+                case Breed.Suezo:
+                {
+                    name = "Teleport (P)";
+                }
+                break;
+                case Breed.Hare:
+                {
+                    name = "Head Jab (P)";
+                }
+                break;
+                case Breed.Gali:
+                {
+                    name = "Flash Bomb (I)";
+                }
+                break;
+                case Breed.Monol:
+                {
+                    name = "Sound Wave (I)";
+                }
+                break;
+                case Breed.Naga:
+                {
+                    name = "Stub (P)";
+                }
+                break;
+                case Breed.Plant:
+                {
+                    name = "Hook (P)";
+                }
+                break;
+                case Breed.Dragon:
+                {
+                    name = "Tail Assault (P)";
+                }
+                break;
+                case Breed.Magic:
+                {
+                    name = "Steady Kick (P)";
+                }
+                break;
+                case Breed.Henger:
+                {
+                    name = "Saber (I)";
+                }
+                break;
+                case Breed.Nya:
+                {
+                    name = "Flip Kick (P)";
+                }
+                break;
+                case Breed.Ape:
+                {
+                    name = "Sneeze (P)";
+                }
+                break;
+                case Breed.Ghost:
+                {
+                    name = "Ambush (I)";
+                }
+                break;
+                case Breed.Doodle:
+                {
+                    name = "Rattle (I)";
+                }
+                break;
+                case Breed.Disk:
+                {
+                    name = "Sword (P)";
+                }
+                break;
+                case Breed.Unk1:
+                {
+                    name = "??? UNK1 ???";
+                }
+                break;
+                case Breed.Unk2:
+                {
+                    name = "??? UNK2 ???";
+                }
+                break;
+                case Breed.Unk3:
+                {
+                    name = "??? UNK3 ???";
+                }
+                break;
+            }
+            
+            return name;
+        }
+        public static string GetHit2TechName(int main)
+        {
+            string name = "N / A";
+
+            if (main == -1)
+                return name;
+
+            Breed mainBreed = (Breed)main;
+
+            switch (mainBreed)
+            {
+                case Breed.Dino:
+                {
+                    name = "Steady Whip (P)";
+                }
+                break;
+                case Breed.Golem:
+                {
+                    name = "Claw Punch (P)";
+                }
+                break;
+                case Breed.Tiger:
+                {
+                    name = "Splash (P)";
+                }
+                break;
+                case Breed.Pixie:
+                {
+                    name = "Shock (I)";
+                }
+                break;
+                case Breed.Worm:
+                {
+                    name = "Double Whip (P)";
+                }
+                break;
+                case Breed.Jell:
+                {
+                    name = "Punch (P)";
+                }
+                break;
+                case Breed.Suezo:
+                {
+                    name = "Telekinesis (I)";
+                }
+                break;
+                case Breed.Hare:
+                {
+                    name = "Big Head Jab (P)";
+                }
+                break;
+                case Breed.Gali:
+                {
+                    name = "Holy Flash (I)";
+                }
+                break;
+                case Breed.Monol:
+                {
+                    name = "Screech (I)";
+                }
+                break;
+                case Breed.Naga:
+                {
+                    name = "Pierce (P)";
+                }
+                break;
+                case Breed.Plant:
+                {
+                    name = "Steady Hook (P)";
+                }
+                break;
+                case Breed.Dragon:
+                {
+                    name = "Tail Hook (P)";
+                }
+                break;
+                case Breed.Magic:
+                {
+                    name = "Flip Kick (P)";
+                }
+                break;
+                case Breed.Henger:
+                {
+                    name = "Double Saber (I)";
+                }
+                break;
+                case Breed.Nya:
+                {
+                    name = "Jump Kick (P)";
+                }
+                break;
+                case Breed.Ape:
+                {
+                    name = "Blast (P)";
+                }
+                break;
+                case Breed.Ghost:
+                {
+                    name = "Skull Ambush (I)";
+                }
+                break;
+                case Breed.Doodle:
+                {
+                    name = "Large Rattle (I)";
+                }
+                break;
+                case Breed.Disk:
+                {
+                    name = "Steady Sword (P)";
+                }
+                break;
+                case Breed.Unk1:
+                {
+                    name = "??? UNK1 ???";
+                }
+                break;
+                case Breed.Unk2:
+                {
+                    name = "??? UNK2 ???";
+                }
+                break;
+                case Breed.Unk3:
+                {
+                    name = "??? UNK3 ???";
+                }
+                break;
+            }
+
+            return name;
+        }
+        public static string GetHeavy1TechName(int main)
+        {
+            string name = "N / A";
+
+            if (main == -1)
+                return name;
+
+            Breed mainBreed = (Breed)main;
+
+            switch (mainBreed)
+            {
+                case Breed.Dino:
+                {
+                    name = "Bite (P)";
+                }
+                break;
+                case Breed.Golem:
+                {
+                    name = "Chop (P)";
+                }
+                break;
+                case Breed.Tiger:
+                {
+                    name = "One/Two (P)";
+                }
+                break;
+                case Breed.Pixie:
+                {
+                    name = "Psychic Kick (I)";
+                }
+                break;
+                case Breed.Worm:
+                {
+                    name = "Pierce (P)";
+                }
+                break;
+                case Breed.Jell:
+                {
+                    name = "Cannon (I)";
+                }
+                break;
+                case Breed.Suezo:
+                {
+                    name = "Bite (P)";
+                }
+                break;
+                case Breed.Hare:
+                {
+                    name = "Guru Guru (P)";
+                }
+                break;
+                case Breed.Gali:
+                {
+                    name = "Flame (I)";
+                }
+                break;
+                case Breed.Monol:
+                {
+                    name = "Probe Attack (P)";
+                }
+                break;
+                case Breed.Naga:
+                {
+                    name = "Evil Bomb (I)";
+                }
+                break;
+                case Breed.Plant:
+                {
+                    name = "Steady Jab (P)";
+                }
+                break;
+                case Breed.Dragon:
+                {
+                    name = "Slam (I)";
+                }
+                break;
+                case Breed.Magic:
+                {
+                    name = "Combination (P)";
+                }
+                break;
+                case Breed.Henger:
+                {
+                    name = "Kick (P)";
+                }
+                break;
+                case Breed.Nya:
+                {
+                    name = "Claw (P)";
+                }
+                break;
+                case Breed.Ape:
+                {
+                    name = "Grab-Throw (P)";
+                }
+                break;
+                case Breed.Ghost:
+                {
+                    name = "Sky Gift (I)";
+                }
+                break;
+                case Breed.Doodle:
+                {
+                    name = "Stomp (P)";
+                }
+                break;
+                case Breed.Disk:
+                {
+                    name = "Saw (P)";
+                }
+                break;
+                case Breed.Unk1:
+                {
+                    name = "??? UNK1 ???";
+                }
+                break;
+                case Breed.Unk2:
+                {
+                    name = "??? UNK2 ???";
+                }
+                break;
+                case Breed.Unk3:
+                {
+                    name = "??? UNK3 ???";
+                }
+                break;
+            }
+
+            return name;
+        }
+        public static string GetHeavy2TechName(int main)
+        {
+            string name = "N / A";
+
+            if (main == -1)
+                return name;
+
+            Breed mainBreed = (Breed)main;
+
+            switch (mainBreed)
+            {
+                case Breed.Dino:
+                {
+                    name = "Throw (P)";
+                }
+                break;
+                case Breed.Golem:
+                {
+                    name = "Double Chop (P)";
+                }
+                break;
+                case Breed.Tiger:
+                {
+                    name = "Combination (P)";
+                }
+                break;
+                case Breed.Pixie:
+                {
+                    name = "Tackle (P)";
+                }
+                break;
+                case Breed.Worm:
+                {
+                    name = "Throw (P)";
+                }
+                break;
+                case Breed.Jell:
+                {
+                    name = "Beam Cannon (I)";
+                }
+                break;
+                case Breed.Suezo:
+                {
+                    name = "Tongue Punch (P)";
+                }
+                break;
+                case Breed.Hare:
+                {
+                    name = "Machine Gun (P)";
+                }
+                break;
+                case Breed.Gali:
+                {
+                    name = "Fire Wall (I)";
+                }
+                break;
+                case Breed.Monol:
+                {
+                    name = "Sting (P)";
+                }
+                break;
+                case Breed.Naga:
+                {
+                    name = "Wicked Bomb (I)";
+                }
+                break;
+                case Breed.Plant:
+                {
+                    name = "Combination (P)";
+                }
+                break;
+                case Breed.Dragon:
+                {
+                    name = "Body Slam (I)";
+                }
+                break;
+                case Breed.Magic:
+                {
+                    name = "Psychic Blow (I)";
+                }
+                break;
+                case Breed.Henger:
+                {
+                    name = "Double Kick (P)";
+                }
+                break;
+                case Breed.Nya:
+                {
+                    name = "Steady Claw (P)";
+                }
+                break;
+                case Breed.Ape:
+                {
+                    name = "Flip Assault (P)";
+                }
+                break;
+                case Breed.Ghost:
+                {
+                    name = "Sky Gifts (I)";
+                }
+                break;
+                case Breed.Doodle:
+                {
+                    name = "Slam Stomp (P)";
+                }
+                break;
+                case Breed.Disk:
+                {
+                    name = "Spring Saw (P)";
+                }
+                break;
+                case Breed.Unk1:
+                {
+                    name = "??? UNK1 ???";
+                }
+                break;
+                case Breed.Unk2:
+                {
+                    name = "??? UNK2 ???";
+                }
+                break;
+                case Breed.Unk3:
+                {
+                    name = "??? UNK3 ???";
+                }
+                break;
+            }
+
+            return name;
+        }
+        public static string GetWither1TechName(int main)
+        {
+            string name = "N / A";
+
+            if (main == -1)
+                return name;
+
+            Breed mainBreed = (Breed)main;
+
+            switch (mainBreed)
+            {
+                case Breed.Dino:
+                {
+                    name = "Scuff (I)";
+                }
+                break;
+                case Breed.Golem:
+                {
+                    name = "Punch (P)";
+                }
+                break;
+                case Breed.Tiger:
+                {
+                    name = "Shock (I)";
+                }
+                break;
+                case Breed.Pixie:
+                {
+                    name = "Flame (I)";
+                }
+                break;
+                case Breed.Worm:
+                {
+                    name = "Razor Bite (P)";
+                }
+                break;
+                case Breed.Jell:
+                {
+                    name = "Fly Swatter (P)";
+                }
+                break;
+                case Breed.Suezo:
+                {
+                    name = "Lick (I)";
+                }
+                break;
+                case Breed.Hare:
+                {
+                    name = "Tomoe Throw (P)";
+                }
+                break;
+                case Breed.Gali:
+                {
+                    name = "Lightning (I)";
+                }
+                break;
+                case Breed.Monol:
+                {
+                    name = "Scratch (P)";
+                }
+                break;
+                case Breed.Naga:
+                {
+                    name = "Tail Assault (P)";
+                }
+                break;
+                case Breed.Plant:
+                {
+                    name = "Toxic Nectar (I)";
+                }
+                break;
+                case Breed.Dragon:
+                {
+                    name = "Chomp (P)";
+                }
+                break;
+                case Breed.Magic:
+                {
+                    name = "Tantrum (I)";
+                }
+                break;
+                case Breed.Henger:
+                {
+                    name = "Rocket (P)";
+                }
+                break;
+                case Breed.Nya:
+                {
+                    name = "Lariat (P)";
+                }
+                break;
+                case Breed.Ape:
+                {
+                    name = "Boomerang (I)";
+                }
+                break;
+                case Breed.Ghost:
+                {
+                    name = "Soul Beam (I)";
+                }
+                break;
+                case Breed.Doodle:
+                {
+                    name = "Cannon (I)";
+                }
+                break;
+                case Breed.Disk:
+                {
+                    name = "Feeler (P)";
+                }
+                break;
+                case Breed.Unk1:
+                {
+                    name = "??? UNK1 ???";
+                }
+                break;
+                case Breed.Unk2:
+                {
+                    name = "??? UNK2 ???";
+                }
+                break;
+                case Breed.Unk3:
+                {
+                    name = "??? UNK3 ???";
+                }
+                break;
+            }
+
+            return name;
+        }
+        public static string GetWither2TechName(int main)
+        {
+            string name = "N / A";
+
+            if (main == -1)
+                return name;
+
+            Breed mainBreed = (Breed)main;
+
+            switch (mainBreed)
+            {
+                case Breed.Dino:
+                {
+                    name = "Deep Scuff (I)";
+                }
+                break;
+                case Breed.Golem:
+                {
+                    name = "Long Punch (P)";
+                }
+                break;
+                case Breed.Tiger:
+                {
+                    name = "Deep Shock (I)";
+                }
+                break;
+                case Breed.Pixie:
+                {
+                    name = "Fire Wall (I)";
+                }
+                break;
+                case Breed.Worm:
+                {
+                    name = "Back Drop (P)";
+                }
+                break;
+                case Breed.Jell:
+                {
+                    name = "Insecticide (I)";
+                }
+                break;
+                case Breed.Suezo:
+                {
+                    name = "Kiss (I)";
+                }
+                break;
+                case Breed.Hare:
+                {
+                    name = "Collar Flip (P)";
+                }
+                break;
+                case Breed.Gali:
+                {
+                    name = "God Anger (I)";
+                }
+                break;
+                case Breed.Monol:
+                {
+                    name = "Warawara (P)";
+                }
+                break;
+                case Breed.Naga:
+                {
+                    name = "Drill Assault (P)";
+                }
+                break;
+                case Breed.Plant:
+                {
+                    name = "Toxic Pollen (I)";
+                }
+                break;
+                case Breed.Dragon:
+                {
+                    name = "Drop Assault (P)";
+                }
+                break;
+                case Breed.Magic:
+                {
+                    name = "Diversion (I)";
+                }
+                break;
+                case Breed.Henger:
+                {
+                    name = "Dual Rocket (P)";
+                }
+                break;
+                case Breed.Nya:
+                {
+                    name = "Head Butt (P)";
+                }
+                break;
+                case Breed.Ape:
+                {
+                    name = "Banana Bomb (I)";
+                }
+                break;
+                case Breed.Ghost:
+                {
+                    name = "Skull Beam (I)";
+                }
+                break;
+                case Breed.Doodle:
+                {
+                    name = "Big Cannon (I)";
+                }
+                break;
+                case Breed.Disk:
+                {
+                    name = "Feeler Stun (I)";
+                }
+                break;
+                case Breed.Unk1:
+                {
+                    name = "??? UNK1 ???";
+                }
+                break;
+                case Breed.Unk2:
+                {
+                    name = "??? UNK2 ???";
+                }
+                break;
+                case Breed.Unk3:
+                {
+                    name = "??? UNK3 ???";
+                }
+                break;
+            }
+
+            return name;
+        }
+        public static string GetRanged1TechName(int main)
+        {
+            string name = "N / A";
+
+            if (main == -1)
+                return name;
+
+            Breed mainBreed = (Breed)main;
+
+            switch (mainBreed)
+            {
+                case Breed.Dino:
+                {
+                    name = "Flame (I)";
+                }
+                break;
+                case Breed.Golem:
+                {
+                    name = "Quake (I)";
+                }
+                break;
+                case Breed.Tiger:
+                {
+                    name = "Ice Bomb (I)";
+                }
+                break;
+                case Breed.Pixie:
+                {
+                    name = "Sonic Blast (I)";
+                }
+                break;
+                case Breed.Worm:
+                {
+                    name = "Poison Spit (I)";
+                }
+                break;
+                case Breed.Jell:
+                {
+                    name = "Spit (I)";
+                }
+                break;
+                case Breed.Suezo:
+                {
+                    name = "Telepathy (I)";
+                }
+                break;
+                case Breed.Hare:
+                {
+                    name = "Shriek (I)";
+                }
+                break;
+                case Breed.Gali:
+                {
+                    name = "Demon Punch (I)";
+                }
+                break;
+                case Breed.Monol:
+                {
+                    name = "Beam (I)";
+                }
+                break;
+                case Breed.Naga:
+                {
+                    name = "Poison Cut (I)";
+                }
+                break;
+                case Breed.Plant:
+                {
+                    name = "Seed Gun (I)";
+                }
+                break;
+                case Breed.Dragon:
+                {
+                    name = "Wing Slash (P)";
+                }
+                break;
+                case Breed.Magic:
+                {
+                    name = "Machine Gun (I)";
+                }
+                break;
+                case Breed.Henger:
+                {
+                    name = "Drill Attack (P)";
+                }
+                break;
+                case Breed.Nya:
+                {
+                    name = "Rear Assault (P)";
+                }
+                break;
+                case Breed.Ape:
+                {
+                    name = "Missile (I)";
+                }
+                break;
+                case Breed.Ghost:
+                {
+                    name = "Magic Card (I)";
+                }
+                break;
+                case Breed.Doodle:
+                {
+                    name = "Stiletto (I)";
+                }
+                break;
+                case Breed.Disk:
+                {
+                    name = "Beam (I)";
+                }
+                break;
+                case Breed.Unk1:
+                {
+                    name = "??? UNK1 ???";
+                }
+                break;
+                case Breed.Unk2:
+                {
+                    name = "??? UNK2 ???";
+                }
+                break;
+                case Breed.Unk3:
+                {
+                    name = "??? UNK3 ???";
+                }
+                break;
+            }
+
+            return name;
+        }
+        public static string GetRanged2TechName(int main)
+        {
+            string name = "N / A";
+
+            if (main == -1)
+                return name;
+
+            Breed mainBreed = (Breed)main;
+
+            switch (mainBreed)
+            {
+                case Breed.Dino:
+                {
+                    name = "Fire Bomb (I)";
+                }
+                break;
+                case Breed.Golem:
+                {
+                    name = "Large Quake (I)";
+                }
+                break;
+                case Breed.Tiger:
+                {
+                    name = "Blizzard (I)";
+                }
+                break;
+                case Breed.Pixie:
+                {
+                    name = "Fire Ball (I)";
+                }
+                break;
+                case Breed.Worm:
+                {
+                    name = "Poison Smoke (I)";
+                }
+                break;
+                case Breed.Jell:
+                {
+                    name = "Spray (I)";
+                }
+                break;
+                case Breed.Suezo:
+                {
+                    name = "Eye Beam (I)";
+                }
+                break;
+                case Breed.Hare:
+                {
+                    name = "Deep Shriek (I)";
+                }
+                break;
+                case Breed.Gali:
+                {
+                    name = "Demon Bash (I)";
+                }
+                break;
+                case Breed.Monol:
+                {
+                    name = "Triple Beam (I)";
+                }
+                break;
+                case Breed.Naga:
+                {
+                    name = "Eye Beam (I)";
+                }
+                break;
+                case Breed.Plant:
+                {
+                    name = "Machine Gun (I)";
+                }
+                break;
+                case Breed.Dragon:
+                {
+                    name = "Flutter (P)";
+                }
+                break;
+                case Breed.Magic:
+                {
+                    name = "Telekinesis (I)";
+                }
+                break;
+                case Breed.Henger:
+                {
+                    name = "Numchuck (P)";
+                }
+                break;
+                case Breed.Nya:
+                {
+                    name = "Beam (I)";
+                }
+                break;
+                case Breed.Ape:
+                {
+                    name = "Big Missile (I)";
+                }
+                break;
+                case Breed.Ghost:
+                {
+                    name = "Magic Cards (I)";
+                }
+                break;
+                case Breed.Doodle:
+                {
+                    name = "Big Stiletto (I)";
+                }
+                break;
+                case Breed.Disk:
+                {
+                    name = "Throw (P)";
+                }
+                break;
+                case Breed.Unk1:
+                {
+                    name = "??? UNK1 ???";
+                }
+                break;
+                case Breed.Unk2:
+                {
+                    name = "??? UNK2 ???";
+                }
+                break;
+                case Breed.Unk3:
+                {
+                    name = "??? UNK3 ???";
+                }
+                break;
+            }
+
+            return name;
+        }
+        public static string GetSpecial1TechName(int main)
+        {
+            string name = "N / A";
+
+            if (main == -1)
+                return name;
+
+            Breed mainBreed = (Breed)main;
+
+            switch (mainBreed)
+            {
+                case Breed.Dino:
+                {
+                    name = "Flame Tackle (P)";
+                }
+                break;
+                case Breed.Golem:
+                {
+                    name = "Cyclone (P)";
+                }
+                break;
+                case Breed.Tiger:
+                {
+                    name = "Roar (I)";
+                }
+                break;
+                case Breed.Pixie:
+                {
+                    name = "Kiss (I)";
+                }
+                break;
+                case Breed.Worm:
+                {
+                    name = "Splash (P)";
+                }
+                break;
+                case Breed.Jell:
+                {
+                    name = "Leg Stomp (P)";
+                }
+                break;
+                case Breed.Suezo:
+                {
+                    name = "Chow Down (P)";
+                }
+                break;
+                case Breed.Hare:
+                {
+                    name = "Poison Gas (I)";
+                }
+                break;
+                case Breed.Gali:
+                {
+                    name = "Blizzard (P)";
+                }
+                break;
+                case Breed.Monol:
+                {
+                    name = "Tackle EX (P)";
+                }
+                break;
+                case Breed.Naga:
+                {
+                    name = "Drain (I)";
+                }
+                break;
+                case Breed.Plant:
+                {
+                    name = "Face Drill (P)";
+                }
+                break;
+                case Breed.Dragon:
+                {
+                    name = "Trample (P)";
+                }
+                break;
+                case Breed.Magic:
+                {
+                    name = "Psychic Slam (I)";
+                }
+                break;
+                case Breed.Henger:
+                {
+                    name = "Final Sword (I)";
+                }
+                break;
+                case Breed.Nya:
+                {
+                    name = "Wide Up (P)";
+                }
+                break;
+                case Breed.Ape:
+                {
+                    name = "Flip Throw (P)";
+                }
+                break;
+                case Breed.Ghost:
+                {
+                    name = "Large Punch (P)";
+                }
+                break;
+                case Breed.Doodle:
+                {
+                    name = "Chicken (P)";
+                }
+                break;
+                case Breed.Disk:
+                {
+                    name = "Lizard (P)";
+                }
+                break;
+                case Breed.Unk1:
+                {
+                    name = "??? UNK1 ???";
+                }
+                break;
+                case Breed.Unk2:
+                {
+                    name = "??? UNK2 ???";
+                }
+                break;
+                case Breed.Unk3:
+                {
+                    name = "??? UNK3 ???";
+                }
+                break;
+            }
+
+            return name;
+        }
+        public static string GetSpecial2TechName(int main)
+        {
+            string name = "N / A";
+
+            if (main == -1)
+                return name;
+
+            Breed mainBreed = (Breed)main;
+
+            switch (mainBreed)
+            {
+                case Breed.Dino:
+                {
+                    name = "Knee Kick (P)";
+                }
+                break;
+                case Breed.Golem:
+                {
+                    name = "Spin Assault (P)";
+                }
+                break;
+                case Breed.Tiger:
+                {
+                    name = "Stab (P)";
+                }
+                break;
+                case Breed.Pixie:
+                {
+                    name = "HP Recovery (I)";
+                }
+                break;
+                case Breed.Worm:
+                {
+                    name = "Kirimomi (P)";
+                }
+                break;
+                case Breed.Jell:
+                {
+                    name = "Suffocate (I)";
+                }
+                break;
+                case Breed.Suezo:
+                {
+                    name = "Yodel (I)";
+                }
+                break;
+                case Breed.Hare:
+                {
+                    name = "Tackle (P)";
+                }
+                break;
+                case Breed.Gali:
+                {
+                    name = "Evil Tantrum (P)";
+                }
+                break;
+                case Breed.Monol:
+                {
+                    name = "Formation (I)";
+                }
+                break;
+                case Breed.Naga:
+                {
+                    name = "Turn Assault (P)";
+                }
+                break;
+                case Breed.Plant:
+                {
+                    name = "Drain (I)";
+                }
+                break;
+                case Breed.Dragon:
+                {
+                    name = "Combination (P)";
+                }
+                break;
+                case Breed.Magic:
+                {
+                    name = "Turn Kick (P)";
+                }
+                break;
+                case Breed.Henger:
+                {
+                    name = "Missile Jab (P)";
+                }
+                break;
+                case Breed.Nya:
+                {
+                    name = "Throw (P)";
+                }
+                break;
+                case Breed.Ape:
+                {
+                    name = "Magical Banana (I)";
+                }
+                break;
+                case Breed.Ghost:
+                {
+                    name = "Combination (P)";
+                }
+                break;
+                case Breed.Doodle:
+                {
+                    name = "Chicken Roll (P)";
+                }
+                break;
+                case Breed.Disk:
+                {
+                    name = "Discus Throw (P)";
+                }
+                break;
+                case Breed.Unk1:
+                {
+                    name = "??? UNK1 ???";
+                }
+                break;
+                case Breed.Unk2:
+                {
+                    name = "??? UNK2 ???";
+                }
+                break;
+                case Breed.Unk3:
+                {
+                    name = "??? UNK3 ???";
+                }
+                break;
+            }
+
+            return name;
+        }
+
         public static string FormatBreedName(int main, int sub)
         {
             Breed mainBreed = (Breed)main;

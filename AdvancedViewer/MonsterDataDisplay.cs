@@ -91,7 +91,7 @@ namespace AdvancedViewer
         public TrainingCalculator? _tCalc;
 
         // versioning
-        string ViewerVersionID = "1.2.0";
+        string ViewerVersionID = "1.3.0";
 
         // -------------------------------------------------------------------------------
 
@@ -348,7 +348,8 @@ namespace AdvancedViewer
             if (_tCalc != null)
             {
                 _tCalc.UpdateMonsterStats(new int[] { _monStats.monLife, _monStats.monPower, _monStats.monDefense, _monStats.monSkill, 
-                                                     _monStats.monSpeed, _monStats.monIntelligence, _monStats.monSpoil, _monStats.monFear });
+                                                      _monStats.monSpeed, _monStats.monIntelligence, _monStats.monSpoil, _monStats.monFear,
+                                                      _monStats.monMainBreed});
             }
 
             // attempt to lower CPU load to 1Hz for these calculations, like the _tCalc form does
